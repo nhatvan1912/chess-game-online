@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chess Online - Game</title>
+  <link rel="stylesheet" href="/css/game.css"/>
+  <!-- Chessboard.js CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.css" integrity="sha512-xqqC/WbdJB1F6vzw5Q9Qm5BqTgMyjX8oX6QWezE3Zr8mQOD2XgA2mK9uOjfQ6bP3r9ei9v1o3a8E8qgq9XbJ5A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="left">
+        <button id="btnBack" class="ghost">&larr; Lobby</button>
+      </div>
+      <div class="center">
+        <h1>Chess Online</h1>
+        <div id="gameInfo" class="subtitle"></div>
+      </div>
+      <div class="right">
+        <button id="btnFlip" class="ghost">Flip</button>
+        <button id="btnCopy" class="ghost">Copy Room</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="board-area">
+        <div class="player-bar" id="blackPanel">
+          <div class="player-meta">
+            <div class="dot" id="turnBlack"></div>
+            <div class="name" id="blackName">Black</div>
+          </div>
+          <div class="clock" id="blackClock">10:00</div>
+        </div>
+
+        <div id="board" class="board"></div>
+
+        <div class="player-bar" id="whitePanel">
+          <div class="player-meta">
+            <div class="dot" id="turnWhite"></div>
+            <div class="name" id="whiteName">White</div>
+          </div>
+          <div class="clock" id="whiteClock">10:00</div>
+        </div>
+
+        <div class="controls">
+          <button id="btnOfferDraw">Offer Draw</button>
+          <button id="btnResign" class="danger">Resign</button>
+        </div>
+      </section>
+
+      <aside class="side">
+        <div class="card">
+          <div class="card-title">Moves</div>
+          <ol id="moveList" class="moves"></ol>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Status</div>
+          <div id="statusBox" class="status"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Chat</div>
+          <div id="chatBox" class="chat"></div>
+          <div class="chat-input">
+            <input id="chatInput" placeholder="Nhập tin nhắn..."/>
+            <button id="btnSendChat">Gửi</button>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <!-- jQuery is required by chessboard.js v1 -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJ+Y3VSW3Zg1J8nF0aS3QFhY7on6R9o3u2Q5s=" crossorigin="anonymous"></script>
+  <!-- chess.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chess.js@1.0.0/dist/chess.min.js"></script>
+  <!-- chessboard.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.js" integrity="sha512-2C3FfK3R8T6n8cC5r8iWb0Zl7qgX2kQmQ1rjEJOk3GkY0m+Nh5K1y4d6m5mW7g2c5sYk8rJf6P+oK8wqS4Fh7w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- App -->
+  <script src="/js/game.js"></script>
+</body>
+</html>

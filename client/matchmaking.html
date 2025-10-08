@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ranking Matchmaking</title>
+  <link rel="stylesheet" href="/css/room.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="card" style="max-width:700px;margin:24px auto">
+      <h3>Đang tìm đối thủ...</h3>
+      <div>Thời gian đợi: <span id="elapsed">0</span>s</div>
+      <div style="margin-top:10px">
+        <button id="btnCancel" class="ghost">Hủy tìm trận</button>
+      </div>
+      <div id="status" class="status" style="margin-top:10px"></div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/socket.js"></script>
+  <script src="/js/matchmaking.js"></script>
+</body>
+</html>

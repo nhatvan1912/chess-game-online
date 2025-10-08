@@ -1,0 +1,236 @@
+:root {
+    --bg: #0f1221;
+    --panel: #151936;
+    --card: #1c2148;
+    --text: #e8ecff;
+    --muted: #a8b0da;
+    --accent: #6ea8fe;
+    --danger: #ff6b6b;
+    --dot: #56ffa3;
+    --dot-off: #3c436a;
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(180deg, #0b0e1b 0%, #141a3f 100%);
+    color: var(--text);
+    font: 14px/1.4 system-ui, Segoe UI, Arial
+}
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #222746;
+    background: #0e1330;
+    position: sticky;
+    top: 0;
+    z-index: 1
+}
+
+.topbar h1 {
+    margin: 0;
+    font-size: 18px
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 4px
+}
+
+.ghost {
+    background: transparent;
+    border: 1px solid #2a3162;
+    color: var(--text);
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer
+}
+
+.ghost:hover {
+    border-color: #3b458b
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: minmax(300px, 720px) 320px;
+    gap: 16px;
+    max-width: 1200px;
+    margin: 16px auto;
+    padding: 0 16px;
+    width: 100%
+}
+
+.board-area {
+    background: var(--panel);
+    border: 1px solid #222746;
+    border-radius: 14px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.board {
+    width: 100%;
+    max-width: 640px;
+    aspect-ratio: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #2a3162
+}
+
+.player-bar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 6px 0;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: var(--card);
+    border: 1px solid #233;
+    gap: 10px
+}
+
+.player-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--dot-off);
+    box-shadow: 0 0 0 2px #263056 inset
+}
+
+.dot.on {
+    background: var(--dot)
+}
+
+.name {
+    font-weight: 600
+}
+
+.clock {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px
+}
+
+.controls button {
+    background: #2a3162;
+    border: 1px solid #3b458b;
+    color: var(--text);
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer
+}
+
+.controls button:hover {
+    filter: brightness(1.1)
+}
+
+.controls .danger {
+    background: #5a2a36;
+    border-color: #7e3b4a;
+    color: #ffd9df
+}
+
+.side {
+    display: flex;
+    flex-direction: column;
+    gap: 16px
+}
+
+.card {
+    background: var(--panel);
+    border: 1px solid #222746;
+    border-radius: 14px;
+    padding: 12px
+}
+
+.card-title {
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #cdd6ff
+}
+
+.moves {
+    max-height: 260px;
+    overflow: auto;
+    margin: 0;
+    padding-left: 18px
+}
+
+.moves li {
+    margin: 3px 0
+}
+
+.status {
+    min-height: 40px;
+    color: var(--muted)
+}
+
+.chat {
+    height: 160px;
+    overflow: auto;
+    background: #0f1430;
+    border: 1px solid #2a3162;
+    border-radius: 8px;
+    padding: 8px
+}
+
+.chat-input {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #2a3162;
+    background: #0d1130;
+    color: var(--text)
+}
+
+.chat-input button {
+    padding: 8px 10px;
+    background: #2a3162;
+    border: 1px solid #3b458b;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer
+}
+
+@media (max-width: 980px) {
+    .layout {
+        grid-template-columns: 1fr
+    }
+
+    .board {
+        max-width: 100%
+    }
+}

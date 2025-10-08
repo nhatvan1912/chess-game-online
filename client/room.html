@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Room</title>
+  <link rel="stylesheet" href="/css/room.css"/>
+</head>
+<body>
+  <div class="container">
+    <header class="head">
+      <div class="left">
+        <button id="btnBack" class="ghost">&larr; Back</button>
+      </div>
+      <div class="center">
+        <h1 id="roomTitle">Room</h1>
+        <div id="roomMeta" class="meta"></div>
+      </div>
+      <div class="right">
+        <button id="btnCopy" class="ghost">Copy Code</button>
+      </div>
+    </header>
+
+    <main class="grid-3">
+      <!-- Controls -->
+      <section class="card">
+        <h3>Controls</h3>
+        <div class="controls">
+          <button id="btnStart" class="success" disabled>Start Game</button>
+          <div id="status" class="status">Waiting for opponent to join...</div>
+        </div>
+        <div class="room-detail">
+          <div><b>Room code:</b> <span id="roomCode"></span></div>
+          <div><b>Type:</b> <span id="roomType"></span></div>
+          <div><b>Mode:</b> <span id="roomMode"></span></div>
+          <div id="roomTimeWrap" style="display:none"><b>Time:</b> <span id="roomTime"></span></div>
+        </div>
+      </section>
+
+      <!-- Players -->
+      <section class="card">
+        <h3>Players</h3>
+        <div class="players">
+          <div class="player you" id="youBox">
+            <div class="row">
+              <div>
+                <div class="label">You</div>
+                <div class="name" id="youName">You</div>
+                <div class="color" id="youColor">-</div>
+              </div>
+              <div class="actions">
+                <button id="btnReadyMy" class="primary">I'm Ready</button>
+                <div class="ready-indicator" id="readyMy">Not ready</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="player rival" id="oppoBox">
+            <div class="row">
+              <div>
+                <div class="label">Opponent</div>
+                <div class="name" id="oppoName">Waiting...</div>
+                <div class="color" id="oppoColor">-</div>
+              </div>
+              <div class="actions">
+                <div class="ready-indicator" id="readyOppo">Not ready</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Online players -->
+      <aside class="card">
+        <h3>Online players</h3>
+        <div class="online-toolbar">
+          <input id="onlineSearch" placeholder="Search username..."/>
+          <button id="btnRefreshOnline" class="ghost sm">Refresh</button>
+        </div>
+        <div id="onlineList" class="online-list"></div>
+        <div class="hint">Only players not already in a room will see your invite.</div>
+      </aside>
+    </main>
+  </div>
+
+  <!-- Invite toast -->
+  <div id="inviteToast" class="invite-toast hidden">
+    <div class="box">
+      <div class="title">Room invitation</div>
+      <div class="msg" id="inviteMsg">You are invited to join room.</div>
+      <div class="row">
+        <button id="btnDecline" class="ghost">Decline</button>
+        <button id="btnAccept" class="primary">Accept</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/socket.js"></script>
+  <script src="/js/room.js"></script>
+</body>
+</html>

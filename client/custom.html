@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Custom Match</title>
+  <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+  <div class="container grid">
+    <div class="card">
+      <h3>Create Room</h3>
+      <label>Tên phòng <input id="roomName"/></label>
+      <label>Loại phòng
+        <select id="roomType">
+          <option value="public">Public</option>
+          <option value="private">Private</option>
+        </select>
+      </label>
+      <label>Password (nếu private) <input id="roomPass" type="password"/></label>
+
+      <label>Chế độ
+        <select id="mode">
+          <option value="blitz">Blitz</option>
+          <option value="normal">Normal</option>
+        </select>
+      </label>
+
+      <div id="blitzCfg">
+        <label>Thời gian tổng (giây, tối đa 600): <input id="initSec" type="number" min="60" max="600" value="300"/></label>
+        <label>Increment mỗi nước (giây): <input id="incSec" type="number" min="0" max="10" value="0"/></label>
+      </div>
+      <div id="normalCfg" style="display:none">
+        <label>Giới hạn mỗi nước (giây, tối đa 90): <input id="perMoveSec" type="number" min="10" max="90" value="60"/></label>
+      </div>
+
+      <button id="btnCreate">Create Room</button>
+      <div id="createMsg"></div>
+    </div>
+
+    <div class="card">
+      <h3>Rooms (waiting)</h3>
+      <div id="rooms"></div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <!-- <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script> -->
+  <script src="/js/socket.js"></script>
+  <script src="/js/custom.js"></script>
+</body>
+</html>
